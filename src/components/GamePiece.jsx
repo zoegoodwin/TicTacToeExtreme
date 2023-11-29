@@ -3,17 +3,6 @@ import {StyleSheet, Text} from 'react-native';
 import {Button} from '@rneui/base';
 
 const Square = ({value = ' ', onPress}) => (
-  //   <TouchableOpacity
-  //     onPress={onPress}
-  //     style={{
-  //       flex: 1,
-  //       alignItems: 'center',
-  //       justifyContent: 'center',
-  //       borderWidth: 1,
-  //       borderColor: '#ccc',
-  //     }}>
-  //     <Text style={{fontSize: 36}}>{value}</Text>
-  //   </TouchableOpacity>
   <Button
     title={value}
     onPress={onPress}
@@ -33,7 +22,7 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   squareText: {
-    fontSize: 36,
+    fontSize: 60,
     color: '#ffffff',
   },
 });
