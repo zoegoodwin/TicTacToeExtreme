@@ -20,7 +20,7 @@ function Home({navigation}) {
               buttonStyle={styles.button}
               titleStyle={styles.buttonTitle}
               containerStyle={styles.buttonContainer}
-              onPress={() => navigation.navigate('GameBoard')}
+              onPress={() => navigation.navigate('Game')}
             />
             <Button
               title="Settings"
