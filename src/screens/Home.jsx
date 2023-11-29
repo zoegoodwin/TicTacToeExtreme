@@ -20,7 +20,7 @@ function Home({navigation}) {
               buttonStyle={styles.button}
               titleStyle={styles.buttonTitle}
               containerStyle={styles.buttonContainer}
-              onPress={() => navigation.navigate('GameBoard')}
+              onPress={() => navigation.navigate('Game')}
             />
             <Button
               title="Settings"
@@ -69,6 +69,8 @@ const styles = StyleSheet.create({
   buttonTitle: {
     fontWeight: 'bold',
     fontSize: 23,
+    color: 'black',
+    marginVertical: -5,
   },
   buttonContainer: {
     marginHorizontal: '20%',
