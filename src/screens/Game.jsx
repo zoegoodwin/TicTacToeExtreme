@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, SafeAreaView} from 'react-native';
+import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
 import {Button} from '@rneui/base';
 import GameBoard from '../components/GameBoard';
 
@@ -51,16 +51,8 @@ const Game = ({navigation}) => {
     setStepNumber(step);
   };
 
-  const moves = history.map((step, move) => {
-    const desc = move ? `Go to move #${move}` : 'Go to game start';
-    return (
-      <View key={move}>
-        <Button onPress={() => jumpTo(move)} title={desc} />
-      </View>
-    );
-  });
-
   let status;
+
   if (winner) {
     status = `Winner: ${winner}`;
   } else {
@@ -70,14 +62,64 @@ const Game = ({navigation}) => {
   return (
     <MainLayout>
       <SafeAreaView>
-        <View>
+        <View style>
           <Text>{status}</Text>
           <GameBoard squares={current.squares} onPress={handleClick} />
-          <View>{moves}</View>
+        </View>
+        <View style={styles.buttonMenu}>
+          <Button
+            title="New Game"
+            loading={false}
+            loadingProps={{size: 'small', color: 'white'}}
+            buttonStyle={styles.button}
+            titleStyle={styles.buttonTitle}
+            containerStyle={styles.buttonContainer}
+            onPress={() => jumpTo(0)}
+          />
+          <Button
+            title="Menu"
+            loading={false}
+            loadingProps={{size: 'small', color: 'white'}}
+            buttonStyle={styles.button}
+            titleStyle={styles.buttonTitle}
+            containerStyle={styles.buttonContainer}
+            onPress={() => navigation.navigate('Home')}
+          />
         </View>
       </SafeAreaView>
     </MainLayout>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    paddingBottom: 20,
+  },
+  title: {
+    fontSize: 36,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  button: {
+    backgroundColor: '#f9d335',
+    borderRadius: 15,
+    borderColor: '#634a8e',
+    borderStyle: 'solid',
+    borderWidth: 3,
+    height: 50,
+    width: 200,
+    marginVertical: 10,
+  },
+  buttonTitle: {
+    fontWeight: 'bold',
+    fontSize: 23,
+  },
+  buttonContainer: {
+    marginHorizontal: '20%',
+  },
+  buttonMenu: {
+    marginTop: '40%',
+  },
+});
 
 export default Game;
