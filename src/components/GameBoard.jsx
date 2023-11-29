@@ -25,7 +25,7 @@ const GameBoard = ({squares, onPress}) => (
 const styles = StyleSheet.create({
   board: {
     flexDirection: 'column',
-    alignItems: 'center', // Center content horizontally
+    alignItems: 'center',
   },
   row: {
     flexDirection: 'row',

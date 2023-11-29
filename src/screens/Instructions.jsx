@@ -86,6 +86,8 @@ const styles = StyleSheet.create({
   buttonTitle: {
     fontWeight: 'bold',
     fontSize: 23,
+    color: 'black',
+    marginVertical: -5,
   },
   buttonContainer: {
     marginHorizontal: '20%',
