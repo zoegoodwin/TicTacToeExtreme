@@ -62,6 +62,11 @@ const Game = ({navigation}) => {
   return (
     <MainLayout>
       <SafeAreaView>
+        
+        <View style={styles.container}>
+          <Text style={styles.title}>Tic Tac Toe </Text>
+        </View>
+        
         <View style>
           <Text>{status}</Text>
           <GameBoard squares={current.squares} onPress={handleClick} />
@@ -75,7 +80,18 @@ const Game = ({navigation}) => {
             titleStyle={styles.buttonTitle}
             containerStyle={styles.buttonContainer}
             onPress={() => jumpTo(0)}
+            />
+          
+          <Button
+            title="Pause"
+            loading={false}
+            loadingProps={{size: 'small', color: 'white'}}
+            buttonStyle={styles.button}
+            titleStyle={styles.buttonTitle}
+            containerStyle={styles.buttonContainer}
+            onPress={() => navigation.navigate('ResumeAndExit')}
           />
+          
           <Button
             title="Menu"
             loading={false}
@@ -113,11 +129,14 @@ const styles = StyleSheet.create({
   buttonTitle: {
     fontWeight: 'bold',
     fontSize: 23,
+    color: 'black',
+    marginVertical: -5,
   },
   buttonContainer: {
     marginHorizontal: '20%',
   },
   buttonMenu: {
+    alignItems: 'center',
     marginTop: '40%',
   },
 });

@@ -10,7 +10,8 @@ function Home({navigation}) {
       <MainLayout>
         <SafeAreaView>
           <View style={styles.container}>
-            <Text style={styles.title}>Tic Tac Toe Extreme</Text>
+            <Text style={styles.title}>Tic Tac Toe </Text>
+            <Text style={styles.title}>Extreme </Text>
           </View>
           <View style={styles.buttonMenu}>
             <Button
@@ -39,7 +40,7 @@ function Home({navigation}) {
                 <Image
                   source={require('../assets/settings-icon.png')}
                   style={styles.icon}
-                />
+            />
               )}
               onPress={() => navigation.navigate('Difficulty')}
             />
@@ -92,11 +93,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: '../assets/fonts/TiltNeon-Regular',
     color: 'black',
+    marginVertical: -5,
   },
   buttonContainer: {
     marginHorizontal: '20%',
   },
   buttonMenu: {
+    alignItems: 'center', 
     marginTop: '50%',
   },
   icon: {
