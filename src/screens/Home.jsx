@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, View, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, View, StyleSheet, Text, Image} from 'react-native';
 import {Button} from '@rneui/base';
 
 import MainLayout from '../layouts/MainLayout';
@@ -20,6 +20,12 @@ function Home({navigation}) {
               buttonStyle={styles.button}
               titleStyle={styles.buttonTitle}
               containerStyle={styles.buttonContainer}
+              icon={() => (
+                <Image
+                  source={require('../assets/start-icon.png')}
+                  style={styles.icon}
+                />
+              )}
               onPress={() => navigation.navigate('Game')}
             />
             <Button
@@ -29,7 +35,13 @@ function Home({navigation}) {
               buttonStyle={styles.button}
               titleStyle={styles.buttonTitle}
               containerStyle={styles.buttonContainer}
-              onPress={() => navigation.navigate('Home')}
+              icon={() => (
+                <Image
+                  source={require('../assets/settings-icon.png')}
+                  style={styles.icon}
+                />
+              )}
+              onPress={() => navigation.navigate('Difficulty')}
             />
             <Button
               title="How to Play"
@@ -38,6 +50,12 @@ function Home({navigation}) {
               buttonStyle={styles.button}
               titleStyle={styles.buttonTitle}
               containerStyle={styles.buttonContainer}
+              icon={() => (
+                <Image
+                  source={require('../assets/instructions-icon.png')}
+                  style={styles.icon}
+                />
+              )}
               onPress={() => navigation.navigate('Instructions')}
             />
           </View>
@@ -50,11 +68,13 @@ function Home({navigation}) {
 const styles = StyleSheet.create({
   container: {
     paddingBottom: 20,
+    backgroundColor: '#e4e6f2',
   },
   title: {
-    fontSize: 36,
-    fontWeight: 'bold',
+    fontSize: 40,
     textAlign: 'center',
+    fontFamily: 'BungeeShade-Regular',
+    color: 'black',
   },
   button: {
     backgroundColor: '#f9d335',
@@ -65,16 +85,24 @@ const styles = StyleSheet.create({
     height: 50,
     width: 200,
     marginVertical: 10,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
   buttonTitle: {
-    fontWeight: 'bold',
-    fontSize: 23,
+    fontSize: 20,
+    fontFamily: '../assets/fonts/TiltNeon-Regular',
+    color: 'black',
   },
   buttonContainer: {
     marginHorizontal: '20%',
   },
   buttonMenu: {
     marginTop: '50%',
+  },
+  icon: {
+    height: 40,
+    width: 40,
+    marginRight: 10,
   },
 });
 

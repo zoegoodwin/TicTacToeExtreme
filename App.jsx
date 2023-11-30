@@ -25,6 +25,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Home from './src/screens/Home';
 import Instructions from './src/screens/Instructions';
 import Game from './src/screens/Game';
+import Difficulty from './src/screens/Difficulty';
 
 const Stack = createStackNavigator();
 
@@ -46,6 +47,11 @@ function App() {
           options={{headerShown: false}}
           name="Game"
           component={Game}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="Difficulty"
+          component={Difficulty}
         />
       </Stack.Navigator>
     </NavigationContainer>
