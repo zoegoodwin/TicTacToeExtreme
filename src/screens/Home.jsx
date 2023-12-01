@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView, View, StyleSheet, Text, Image} from 'react-native';
-import {Button} from '@rneui/base';
+import {IconButton} from '../components/Button';
 
 import MainLayout from '../layouts/MainLayout';
 
@@ -14,49 +14,19 @@ function Home({navigation}) {
             <Text style={styles.title}>Extreme </Text>
           </View>
           <View style={styles.buttonMenu}>
-            <Button
+            <IconButton
               title="New Game"
-              loading={false}
-              loadingProps={{size: 'small', color: 'white'}}
-              buttonStyle={styles.button}
-              titleStyle={styles.buttonTitle}
-              containerStyle={styles.buttonContainer}
-              icon={() => (
-                <Image
-                  source={require('../assets/start-icon.png')}
-                  style={styles.icon}
-                />
-              )}
+              iconName="newGame"
               onPress={() => navigation.navigate('Game')}
             />
-            <Button
+            <IconButton
               title="Settings"
-              loading={false}
-              loadingProps={{size: 'small', color: 'white'}}
-              buttonStyle={styles.button}
-              titleStyle={styles.buttonTitle}
-              containerStyle={styles.buttonContainer}
-              icon={() => (
-                <Image
-                  source={require('../assets/settings-icon.png')}
-                  style={styles.icon}
-            />
-              )}
+              iconName="settings"
               onPress={() => navigation.navigate('Difficulty')}
             />
-            <Button
+            <IconButton
               title="How to Play"
-              loading={false}
-              loadingProps={{size: 'small', color: 'white'}}
-              buttonStyle={styles.button}
-              titleStyle={styles.buttonTitle}
-              containerStyle={styles.buttonContainer}
-              icon={() => (
-                <Image
-                  source={require('../assets/instructions-icon.png')}
-                  style={styles.icon}
-                />
-              )}
+              iconName="instructions"
               onPress={() => navigation.navigate('Instructions')}
             />
           </View>
@@ -77,35 +47,9 @@ const styles = StyleSheet.create({
     fontFamily: 'BungeeShade-Regular',
     color: 'black',
   },
-  button: {
-    backgroundColor: '#f9d335',
-    borderRadius: 15,
-    borderColor: '#634a8e',
-    borderStyle: 'solid',
-    borderWidth: 3,
-    height: 50,
-    width: 200,
-    marginVertical: 10,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-  },
-  buttonTitle: {
-    fontSize: 20,
-    fontFamily: '../assets/fonts/TiltNeon-Regular',
-    color: 'black',
-    marginVertical: -5,
-  },
-  buttonContainer: {
-    marginHorizontal: '20%',
-  },
   buttonMenu: {
     alignItems: 'center', 
     marginTop: '50%',
-  },
-  icon: {
-    height: 40,
-    width: 40,
-    marginRight: 10,
   },
 });
 
