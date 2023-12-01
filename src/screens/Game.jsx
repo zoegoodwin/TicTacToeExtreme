@@ -109,10 +109,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'BungeeShade-Regular',
     color: 'black',
-    marginBottom: '5%',
+    marginBottom: '10',
   },
   buttonMenu: {
-    marginTop: '10%',
+    marginTop: '5%',
   },
   status: {
     fontSize: 20,

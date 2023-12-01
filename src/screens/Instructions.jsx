@@ -62,7 +62,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'BungeeShade-Regular',
     color: 'black',
-    marginBottom: '5%',
   },
   sectionTitle: {
     fontSize: 24,
@@ -82,7 +81,7 @@ const styles = StyleSheet.create({
     marginBottom: '1%',
   },
   buttonMenu: {
-    marginTop: '10%',
+    marginTop: '5%',
   },
 });
 

@@ -65,11 +65,12 @@ const styles = StyleSheet.create({
     fontFamily: 'BungeeShade-Regular',
     color: 'black',
     marginLeft: '5%',
+    textAlign: 'center',
   },
   sliderContainer: {
     flexDirection: 'column',
     alignItems: 'center',
-    marginTop: '35%',
+    marginTop: '15%',
   },
   rangeInput: {
     width: '80%',
