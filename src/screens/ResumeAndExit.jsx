@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
-import { Button } from '@rneui/base';
+import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
+import {Button} from '@rneui/base';
 import MainLayout from '../layouts/MainLayout';
 
-const ResumeAndExit = ({ navigation }) => {
+const ResumeAndExit = ({navigation}) => {
   return (
     <MainLayout>
       <SafeAreaView style={styles.container}>
@@ -11,14 +11,12 @@ const ResumeAndExit = ({ navigation }) => {
           <Text style={styles.title}>
             Are you sure you want to exit the game?
           </Text>
-          <Text style={styles.contentText}>
-            All progress will be lost.
-          </Text>
+          <Text style={styles.contentText}>All progress will be lost.</Text>
 
           <Button
             title="Yes, Exit"
             loading={false}
-            loadingProps={{ size: 'small', color: 'white' }}
+            loadingProps={{size: 'small', color: 'white'}}
             buttonStyle={styles.button}
             titleStyle={styles.buttonTitle}
             containerStyle={styles.buttonContainer}
@@ -27,7 +25,7 @@ const ResumeAndExit = ({ navigation }) => {
           <Button
             title="Resume"
             loading={false}
-            loadingProps={{ size: 'small', color: 'white' }}
+            loadingProps={{size: 'small', color: 'white'}}
             buttonStyle={styles.button}
             titleStyle={styles.buttonTitle}
             containerStyle={styles.buttonContainer}
@@ -46,7 +44,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     marginHorizontal: 20,
-    alignItems: 'center', 
+    alignItems: 'center',
   },
   title: {
     fontSize: 36,

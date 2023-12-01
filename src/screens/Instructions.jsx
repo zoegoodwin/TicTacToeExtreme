@@ -36,6 +36,21 @@ const Instructions = ({navigation}) => {
               </Text>
             </View>
 
+            <Text style={styles.sectionTitle}>Timed</Text>
+            <View>
+              <Text style={styles.descText}>
+                Follows the same rules as above, except each player only has a
+                set number of seconds to complete their turn.
+              </Text>
+              <Text style={styles.descText}>
+                If a player does not take their turn within the time limit, the
+                game moves forward with the next player's turn.
+              </Text>
+              <Text style={styles.descText}>
+                The number of seconds per turn can be adjusted in the difficulty
+                settings menu.
+              </Text>
+            </View>
             <Button
               title="Back"
               loading={false}
@@ -59,30 +74,29 @@ const Instructions = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    paddingBottom: 20,
-  },
   title: {
     fontSize: 40,
     textAlign: 'center',
     fontFamily: 'BungeeShade-Regular',
     color: 'black',
+    marginBottom: '5%',
   },
   sectionTitle: {
     fontSize: 24,
-    marginTop: 20,
-    marginBottom: 10,
+    marginTop: '5%',
+    marginBottom: '5%',
     fontWeight: 'bold',
     color: 'black',
   },
   boldText: {
     fontSize: 20,
-    marginTop: 10,
-    marginBottom: 10,
+    marginTop: '1%',
+    marginBottom: '2%',
     color: 'black',
   },
   descText: {
     color: 'black',
+    marginBottom: '1%',
   },
   button: {
     backgroundColor: '#f9d335',
@@ -103,6 +117,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginHorizontal: '20%',
+    marginVertical: '10%',
   },
   icon: {
     height: 40,

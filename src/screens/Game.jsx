@@ -54,10 +54,10 @@ const Game = ({navigation}) => {
   useEffect(() => {
     const winner = calculateWinner(current.squares);
     const isDraw = !winner && current.squares.every(square => square !== null);
-  
+
     if (winner || isDraw) {
-      navigation.navigate('GameOver', { winner, isDraw });
-      setHistory([{ squares: Array(9).fill(null) }]);
+      navigation.navigate('GameOver', {winner, isDraw});
+      setHistory([{squares: Array(9).fill(null)}]);
       setStepNumber(0);
     }
   }, [current.squares, navigation]);
@@ -73,7 +73,7 @@ const Game = ({navigation}) => {
   return (
     <MainLayout>
       <SafeAreaView>
-        <View style={styles.container}>
+        <View>
           <Text style={styles.title}>Tic Tac Toe </Text>
         </View>
 
@@ -106,14 +106,12 @@ const Game = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    paddingBottom: 20,
-  },
   title: {
-    fontSize: 36,
+    fontSize: 40,
     textAlign: 'center',
     fontFamily: 'BungeeShade-Regular',
     color: 'black',
+    marginBottom: '5%',
   },
   button: {
     backgroundColor: '#f9d335',

@@ -1,17 +1,16 @@
 import React from 'react';
-import { SafeAreaView, View, StyleSheet, Text, Image } from 'react-native';
+import {SafeAreaView, View, StyleSheet, Text, Image} from 'react-native';
 import IconButton from '../components/Button';
 
 import MainLayout from '../layouts/MainLayout';
 
-function Home({ navigation }) {
+function Home({navigation}) {
   return (
     <>
       <MainLayout>
         <SafeAreaView>
           <View style={styles.container}>
-            <Text style={styles.title}>Tic Tac Toe </Text>
-            <Text style={styles.title}>Extreme </Text>
+            <Text style={styles.title}>Tic Tac Toe Extreme</Text>
             <Image
               style={styles.logo}
               source={require('../assets/icons/tic-tac-toe-logo.png')}
@@ -42,8 +41,7 @@ function Home({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    paddingBottom: 20,
-    backgroundColor: '#e4e6f2',
+    paddingBottom: '10%',
     alignItems: 'center',
   },
   title: {
@@ -54,8 +52,8 @@ const styles = StyleSheet.create({
     marginBottom: '5%',
   },
   logo: {
-    width: 230, 
-    height: 230, 
+    width: 230,
+    height: 230,
     resizeMode: 'contain',
   },
   buttonMenu: {

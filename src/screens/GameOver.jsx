@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
 import IconButton from '../components/Button';
+import MainLayout from '../layouts/MainLayout';
 
-const GameOver = ({ navigation, route }) => {
-  const { winner, isDraw } = route.params;
+const GameOver = ({navigation, route}) => {
+  const {winner, isDraw} = route.params;
 
   let message;
   if (isDraw) {
@@ -13,35 +14,35 @@ const GameOver = ({ navigation, route }) => {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.spacer}></View>
-      <View>
-        <Text style={styles.title}>Game Over!</Text>
-        <Text style={styles.winText}>{message}</Text>
-      </View>
+    <MainLayout>
+      <SafeAreaView style={styles.container}>
+        <View>
+          <Text style={styles.title}>Game Over!</Text>
+          <Text style={styles.winText}>{message}</Text>
+        </View>
 
-      <View style={styles.buttonMenu}>
-        <IconButton
-          title="New Game"
-          iconName="newGame"
-          onPress={() => navigation.navigate('Game')}
-        />
+        <View style={styles.buttonMenu}>
+          <IconButton
+            title="New Game"
+            iconName="newGame"
+            onPress={() => navigation.navigate('Game')}
+          />
 
-        <IconButton
-          title="Home"
-          iconName="home"
-          onPress={() => navigation.navigate('Home')}
-        />
-      </View>
-    </SafeAreaView>
+          <IconButton
+            title="Home"
+            iconName="home"
+            onPress={() => navigation.navigate('Home')}
+          />
+        </View>
+      </SafeAreaView>
+    </MainLayout>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingBottom: 20,
-    backgroundColor: '#e4e6f2',
+    justifyContent: 'center',
   },
   winText: {
     color: 'black',
@@ -51,17 +52,15 @@ const styles = StyleSheet.create({
     fontFamily: 'NeonTilt-Regular',
   },
   title: {
-    fontSize: 36,
+    fontSize: 40,
     textAlign: 'center',
     fontFamily: 'BungeeShade-Regular',
     color: 'black',
+    marginBottom: '5%',
   },
   buttonMenu: {
     alignItems: 'center',
     marginTop: '10%',
-  },
-  spacer: {
-    height: 200,
   },
 });
 
