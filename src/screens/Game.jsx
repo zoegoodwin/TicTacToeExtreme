@@ -53,8 +53,10 @@ const Game = ({navigation}) => {
 
   useEffect(() => {
     const winner = calculateWinner(current.squares);
-    if (winner) {
-      navigation.navigate('GameOver', {winner});
+    const isDraw = !winner && current.squares.every(square => square !== null);
+  
+    if (winner || isDraw) {
+      navigation.navigate('GameOver', { winner, isDraw });
       setHistory([{ squares: Array(9).fill(null) }]);
       setStepNumber(0);
     }

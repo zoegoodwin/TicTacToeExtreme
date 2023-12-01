@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
+import {View, Text, SafeAreaView, StyleSheet, Image} from 'react-native';
 import {Button} from '@rneui/base';
 
 import MainLayout from '../layouts/MainLayout';
@@ -15,7 +15,7 @@ const Instructions = ({navigation}) => {
             <Text style={styles.sectionTitle}>Regular Game</Text>
             <View>
               <Text style={styles.boldText}>Objective: </Text>
-              <Text>
+              <Text style={styles.descText}>
                 The goal is to get three of your symbols (either 'X' or 'O') in
                 a row, either horizontally, vertically, or diagonally.
               </Text>
@@ -23,14 +23,14 @@ const Instructions = ({navigation}) => {
 
             <View>
               <Text style={styles.boldText}>Game Play: </Text>
-              <Text>
+              <Text style={styles.descText}>
                 Players take turns placing their symbol ('X' or 'O') in an empty
                 cell of the grid.
               </Text>
-              <Text>
+              <Text style={styles.descText}>
                 The first player to get three of their symbols in a row wins.
               </Text>
-              <Text>
+              <Text style={styles.descText}>
                 If all the cells are filled and no player has three in a row,
                 the game is a tie.
               </Text>
@@ -43,6 +43,12 @@ const Instructions = ({navigation}) => {
               buttonStyle={styles.button}
               titleStyle={styles.buttonTitle}
               containerStyle={styles.buttonContainer}
+              icon={() => (
+                <Image
+                  source={require('../assets/icons/back-icon.png')}
+                  style={styles.icon}
+                />
+              )}
               onPress={() => navigation.navigate('Home')}
             />
           </View>
@@ -57,21 +63,26 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   title: {
-    fontSize: 36,
-    fontWeight: 'bold',
+    fontSize: 40,
     textAlign: 'center',
-    marginTop: 10,
+    fontFamily: 'BungeeShade-Regular',
+    color: 'black',
   },
   sectionTitle: {
     fontSize: 24,
     marginTop: 20,
     marginBottom: 10,
     fontWeight: 'bold',
+    color: 'black',
   },
   boldText: {
     fontSize: 20,
     marginTop: 10,
     marginBottom: 10,
+    color: 'black',
+  },
+  descText: {
+    color: 'black',
   },
   button: {
     backgroundColor: '#f9d335',
@@ -81,16 +92,22 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     height: 50,
     width: 200,
-    marginVertical: 50,
+    marginVertical: 10,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
   buttonTitle: {
-    fontWeight: 'bold',
-    fontSize: 23,
+    fontSize: 20,
+    fontFamily: '../assets/fonts/TiltNeon-Regular',
     color: 'black',
-    marginVertical: -5,
   },
   buttonContainer: {
     marginHorizontal: '20%',
+  },
+  icon: {
+    height: 40,
+    width: 40,
+    marginRight: 10,
   },
 });
 
