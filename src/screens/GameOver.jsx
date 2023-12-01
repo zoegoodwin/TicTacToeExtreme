@@ -1,15 +1,23 @@
 import React from 'react';
-import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
 import IconButton from '../components/Button';
 
-const GameOver = ({navigation, route}) => {
-  const {winner} = route.params;
+const GameOver = ({ navigation, route }) => {
+  const { winner, isDraw } = route.params;
+
+  let message;
+  if (isDraw) {
+    message = "It's a Draw!";
+  } else {
+    message = `Player ${winner} Wins`;
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.spacer}></View>
       <View>
-        <Text style={styles.title}>Congrats!</Text>
-        <Text style={styles.winText}>Player {winner} Wins</Text>
+        <Text style={styles.title}>Game Over!</Text>
+        <Text style={styles.winText}>{message}</Text>
       </View>
 
       <View style={styles.buttonMenu}>
