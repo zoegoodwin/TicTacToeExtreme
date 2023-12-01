@@ -54,10 +54,10 @@ const Game = ({navigation}) => {
   useEffect(() => {
     const winner = calculateWinner(current.squares);
     const isDraw = !winner && current.squares.every(square => square !== null);
-  
+
     if (winner || isDraw) {
-      navigation.navigate('GameOver', { winner, isDraw });
-      setHistory([{ squares: Array(9).fill(null) }]);
+      navigation.navigate('GameOver', {winner, isDraw});
+      setHistory([{squares: Array(9).fill(null)}]);
       setStepNumber(0);
     }
   }, [current.squares, navigation]);
@@ -73,12 +73,10 @@ const Game = ({navigation}) => {
   return (
     <MainLayout>
       <SafeAreaView>
-        <View style={styles.container}>
-          <Text style={styles.title}>Tic Tac Toe </Text>
-        </View>
-
         <View>
+          <Text style={styles.title}>Tic Tac Toe </Text>
           <Text style={styles.status}>{status}</Text>
+
           <GameBoard squares={current.squares} onPress={handleClick} />
         </View>
         <View style={styles.buttonMenu}>
@@ -106,36 +104,14 @@ const Game = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    paddingBottom: 20,
-  },
   title: {
-    fontSize: 36,
+    fontSize: 40,
     textAlign: 'center',
     fontFamily: 'BungeeShade-Regular',
     color: 'black',
-  },
-  button: {
-    backgroundColor: '#f9d335',
-    borderRadius: 15,
-    borderColor: '#634a8e',
-    borderStyle: 'solid',
-    borderWidth: 3,
-    height: 50,
-    width: 200,
-    marginVertical: 10,
-  },
-  buttonTitle: {
-    fontWeight: 'bold',
-    fontSize: 23,
-    color: 'black',
-    marginVertical: -5,
-  },
-  buttonContainer: {
-    marginHorizontal: '20%',
+    marginBottom: '5%',
   },
   buttonMenu: {
-    alignItems: 'center',
     marginTop: '10%',
   },
   status: {

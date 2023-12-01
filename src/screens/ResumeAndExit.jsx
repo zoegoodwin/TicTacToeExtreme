@@ -1,36 +1,25 @@
 import React from 'react';
-import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
-import { Button } from '@rneui/base';
+import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
+import IButton from '../components/Button';
 import MainLayout from '../layouts/MainLayout';
 
-const ResumeAndExit = ({ navigation }) => {
+const ResumeAndExit = ({navigation}) => {
   return (
     <MainLayout>
-      <SafeAreaView style={styles.container}>
-        <View style={styles.contentContainer}>
+      <SafeAreaView>
+        <View style={styles.container}>
           <Text style={styles.title}>
             Are you sure you want to exit the game?
           </Text>
-          <Text style={styles.contentText}>
-            All progress will be lost.
-          </Text>
-
-          <Button
+          <Text style={styles.contentText}>All progress will be lost.</Text>
+          <IButton
             title="Yes, Exit"
-            loading={false}
-            loadingProps={{ size: 'small', color: 'white' }}
-            buttonStyle={styles.button}
-            titleStyle={styles.buttonTitle}
-            containerStyle={styles.buttonContainer}
+            iconName="home"
             onPress={() => navigation.navigate('Home')}
           />
-          <Button
+          <IButton
             title="Resume"
-            loading={false}
-            loadingProps={{ size: 'small', color: 'white' }}
-            buttonStyle={styles.button}
-            titleStyle={styles.buttonTitle}
-            containerStyle={styles.buttonContainer}
+            iconName="back"
             onPress={() => navigation.navigate('Game')}
           />
         </View>
@@ -41,12 +30,7 @@ const ResumeAndExit = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  contentContainer: {
-    marginHorizontal: 20,
-    alignItems: 'center', 
+    marginVertical: '50%',
   },
   title: {
     fontSize: 36,
@@ -57,26 +41,6 @@ const styles = StyleSheet.create({
   contentText: {
     textAlign: 'center',
     marginBottom: 20,
-  },
-  button: {
-    backgroundColor: '#f9d335',
-    borderRadius: 15,
-    borderColor: '#634a8e',
-    borderStyle: 'solid',
-    borderWidth: 3,
-    height: 50,
-    width: 200,
-    marginVertical: 10,
-    padding: 10,
-  },
-  buttonTitle: {
-    fontWeight: 'bold',
-    fontSize: 23,
-    color: 'black',
-    marginVertical: -5,
-  },
-  buttonContainer: {
-    marginVertical: 10,
   },
 });
 
