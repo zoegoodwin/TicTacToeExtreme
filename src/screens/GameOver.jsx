@@ -3,14 +3,15 @@ import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
 import IconButton from '../components/Button';
 import MainLayout from '../layouts/MainLayout';
 
-const GameOver = ({navigation, route}) => {
-  const {winner, isDraw} = route.params;
-
+const GameOver = ({ navigation, route }) => {
+  const { winner, isDraw, initialTime } = route.params;
   let message;
   if (isDraw) {
     message = "It's a Draw!";
-  } else {
+  } else if (winner) {
     message = `Player ${winner} Wins`;
+  } else {
+    message = "Ran out of Time!";
   }
 
   return (
@@ -20,11 +21,11 @@ const GameOver = ({navigation, route}) => {
           <Text style={styles.title}>Game Over!</Text>
           <Text style={styles.winText}>{message}</Text>
           <View style={styles.buttonMenu}>
-            <IconButton
-              title="New Game"
-              iconName="newGame"
-              onPress={() => navigation.navigate('Game')}
-            />
+          <IconButton
+            title="New Game"
+            iconName="newGame"
+            onPress={() => navigation.navigate('Game', { initialTime })}
+          />
             <IconButton
               title="Home"
               iconName="home"

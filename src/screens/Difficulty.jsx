@@ -3,12 +3,18 @@ import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
 import {Slider} from '@rneui/themed';
 import IconButton from '../components/Button';
 import MainLayout from '../layouts/MainLayout';
+import {useGameMode} from '../screens/GameMode';
 
-const Difficulty = ({navigation}) => {
-  const [time, setTime] = useState(5);
+const Difficulty = ({ navigation }) => {
+  const { time, setTime, isNormalMode, setIsNormalMode } = useGameMode();
 
   const sendMessage = message => {
+    setIsNormalMode(message === 'normal');
     alert(`Game set to ${message} mode`);
+  };
+
+  const startGame = () => {
+    navigation.navigate('Game', { initialTime: time });
   };
 
   return (
@@ -28,7 +34,7 @@ const Difficulty = ({navigation}) => {
             <IconButton
               title="Speed Run"
               iconName="speedrun"
-              onPress={() => sendMessage('speed run (not implemented)')}
+              onPress={() => navigation.navigate('Game', { initialTime: time })}
             />
             <IconButton
               title="Back"
@@ -45,7 +51,7 @@ const Difficulty = ({navigation}) => {
             maximumValue={10}
             step={1}
             value={time}
-            onValueChange={value => setTime(value)}
+            onValueChange={(value) => setTime(value)}
           />
           <Text style={styles.rangeValue}>{`Time: ${time} seconds`}</Text>
         </View>
