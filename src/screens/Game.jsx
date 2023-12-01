@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
-import {Button} from '@rneui/base';
 import GameBoard from '../components/GameBoard';
 
 import MainLayout from '../layouts/MainLayout';
+import IconButton from '../components/Button';
 
 const calculateWinner = squares => {
   const lines = [
@@ -51,6 +51,13 @@ const Game = ({navigation}) => {
     setStepNumber(step);
   };
 
+  useEffect(() => {
+    const winner = calculateWinner(current.squares);
+    if (winner) {
+      navigation.navigate('GameOver', {winner});
+    }
+  }, [current.squares, navigation]);
+
   let status;
 
   if (winner) {
@@ -62,43 +69,30 @@ const Game = ({navigation}) => {
   return (
     <MainLayout>
       <SafeAreaView>
-        
         <View style={styles.container}>
           <Text style={styles.title}>Tic Tac Toe </Text>
         </View>
-        
-        <View style>
-          <Text>{status}</Text>
+
+        <View>
+          <Text style={styles.status}>{status}</Text>
           <GameBoard squares={current.squares} onPress={handleClick} />
         </View>
         <View style={styles.buttonMenu}>
-          <Button
+          <IconButton
             title="New Game"
-            loading={false}
-            loadingProps={{size: 'small', color: 'white'}}
-            buttonStyle={styles.button}
-            titleStyle={styles.buttonTitle}
-            containerStyle={styles.buttonContainer}
+            iconName="newGame"
             onPress={() => jumpTo(0)}
-            />
-          
-          <Button
+          />
+
+          <IconButton
             title="Pause"
-            loading={false}
-            loadingProps={{size: 'small', color: 'white'}}
-            buttonStyle={styles.button}
-            titleStyle={styles.buttonTitle}
-            containerStyle={styles.buttonContainer}
+            iconName="pause"
             onPress={() => navigation.navigate('ResumeAndExit')}
           />
-          
-          <Button
+
+          <IconButton
             title="Menu"
-            loading={false}
-            loadingProps={{size: 'small', color: 'white'}}
-            buttonStyle={styles.button}
-            titleStyle={styles.buttonTitle}
-            containerStyle={styles.buttonContainer}
+            iconName="menu"
             onPress={() => navigation.navigate('Home')}
           />
         </View>
@@ -113,8 +107,9 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 36,
-    fontWeight: 'bold',
     textAlign: 'center',
+    fontFamily: 'BungeeShade-Regular',
+    color: 'black',
   },
   button: {
     backgroundColor: '#f9d335',
@@ -137,7 +132,13 @@ const styles = StyleSheet.create({
   },
   buttonMenu: {
     alignItems: 'center',
-    marginTop: '40%',
+    marginTop: '10%',
+  },
+  status: {
+    fontSize: 20,
+    fontFamily: 'NeonTilt-Regular',
+    color: 'black',
+    marginBottom: 10,
   },
 });
 

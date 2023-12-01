@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, Image, SafeAreaView} from 'react-native';
+import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
 import {Slider} from '@rneui/themed';
-import {Button} from '@rneui/base';
+import IconButton from '../components/Button';
 
 const Difficulty = ({navigation}) => {
   const [time, setTime] = useState(5);
@@ -11,74 +11,41 @@ const Difficulty = ({navigation}) => {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <View style={styles.spacer}></View>
-      <View style={styles.container}>
+      <View>
         <Text style={styles.title}>Select Difficulty</Text>
       </View>
-
-      <View style={styles.options}>
-        <View>
-          <View style={styles.buttonMenu}>
-            <Button
-              title="Normal"
-              loading={false}
-              loadingProps={{size: 'small', color: 'white'}}
-              buttonStyle={styles.button}
-              titleStyle={styles.buttonTitle}
-              containerStyle={styles.buttonContainer}
-              icon={() => (
-                <Image
-                  source={require('../assets/icons/start-icon.png')}
-                  style={styles.icon}
-                />
-              )}
-              onPress={() => sendMessage('Normal')}
-            />
-            <Button
-              title="Speed Run"
-              loading={false}
-              loadingProps={{size: 'small', color: 'white'}}
-              buttonStyle={styles.button}
-              titleStyle={styles.buttonTitle}
-              containerStyle={styles.buttonContainer}
-              icon={() => (
-                <Image
-                  source={require('../assets/icons/speedrun-icon.png')}
-                  style={styles.icon}
-                />
-              )}
-              onPress={() => sendMessage('Speed Run')}
-            />
-            <Button
-              title="Back"
-              loading={false}
-              loadingProps={{size: 'small', color: 'white'}}
-              buttonStyle={styles.button}
-              titleStyle={styles.buttonTitle}
-              containerStyle={styles.buttonContainer}
-              icon={() => (
-                <Image
-                  source={require('../assets/icons/back-icon.png')}
-                  style={styles.icon}
-                />
-              )}
-              onPress={() => navigation.navigate('Home')}
-            />
-          </View>
-        </View>
-
-        <View style={styles.sliderContainer}>
-          <Slider
-            style={styles.rangeInput}
-            minimumValue={1}
-            maximumValue={10}
-            step={1}
-            value={time}
-            onValueChange={value => setTime(value)}
+      <View>
+        <View style={styles.buttonMenu}>
+          <IconButton
+            title="Normal"
+            iconName="start"
+            onPress={() => sendMessage('normal')}
           />
-          <Text style={styles.rangeValue}>{`Time: ${time} seconds`}</Text>
+          <IconButton
+            title="Speed Run"
+            iconName="speedrun"
+            onPress={() => sendMessage('speed run (not implemented)')}
+          />
+          <IconButton
+            title="Back"
+            iconName="back"
+            onPress={() => navigation.navigate('Home')}
+          />
         </View>
+      </View>
+
+      <View style={styles.sliderContainer}>
+        <Slider
+          style={styles.rangeInput}
+          minimumValue={1}
+          maximumValue={10}
+          step={1}
+          value={time}
+          onValueChange={value => setTime(value)}
+        />
+        <Text style={styles.rangeValue}>{`Time: ${time} seconds`}</Text>
       </View>
     </SafeAreaView>
   );
@@ -98,31 +65,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     fontFamily: 'BungeeShade-Regular',
     color: 'black',
-  },
-  winText: {
-    color: 'black',
-    marginTop: 0,
-    fontSize: 24,
-  },
-  playerInfoDisplay: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    margin: 5,
-    padding: 0,
-  },
-  instructions: {
-    textAlign: 'left',
-    margin: 0,
-  },
-  options: {
-    textAlign: 'center',
-    fontFamily: 'Arial',
-    fontSize: 30,
-    color: '#000000',
+    marginLeft: '5%',
   },
   sliderContainer: {
     flexDirection: 'column',
     alignItems: 'center',
+    marginTop: '40%',
+  },
+  rangeInput: {
+    width: '80%',
+    margin: 10,
+  },
+  rangeValue: {
+    fontSize: 30,
+    color: 'black',
+    fontFamily: 'TiltNeon-Regular',
   },
   button: {
     backgroundColor: '#f9d335',
@@ -145,7 +102,7 @@ const styles = StyleSheet.create({
     marginHorizontal: '20%',
   },
   buttonMenu: {
-    marginTop: '50%',
+    alignItems: 'center',
   },
   icon: {
     height: 40,

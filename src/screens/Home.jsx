@@ -1,6 +1,6 @@
 import React from 'react';
-import {SafeAreaView, View, StyleSheet, Text, Image} from 'react-native';
-import {IconButton} from '../components/Button';
+import {SafeAreaView, View, StyleSheet, Text} from 'react-native';
+import IconButton from '../components/Button';
 
 import MainLayout from '../layouts/MainLayout';
 
@@ -16,7 +16,7 @@ function Home({navigation}) {
           <View style={styles.buttonMenu}>
             <IconButton
               title="New Game"
-              iconName="newGame"
+              iconName="start"
               onPress={() => navigation.navigate('Game')}
             />
             <IconButton
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   buttonMenu: {
-    alignItems: 'center', 
+    alignItems: 'center',
     marginTop: '50%',
   },
 });
