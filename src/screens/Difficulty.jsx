@@ -29,7 +29,7 @@ const Difficulty = ({navigation}) => {
               containerStyle={styles.buttonContainer}
               icon={() => (
                 <Image
-                  source={require('../assets/start-icon.png')}
+                  source={require('../assets/icons/start-icon.png')}
                   style={styles.icon}
                 />
               )}
@@ -44,7 +44,7 @@ const Difficulty = ({navigation}) => {
               containerStyle={styles.buttonContainer}
               icon={() => (
                 <Image
-                  source={require('../assets/speedrun-icon.png')}
+                  source={require('../assets/icons/speedrun-icon.png')}
                   style={styles.icon}
                 />
               )}
@@ -59,7 +59,7 @@ const Difficulty = ({navigation}) => {
               containerStyle={styles.buttonContainer}
               icon={() => (
                 <Image
-                  source={require('../assets/back-icon.png')}
+                  source={require('../assets/icons/back-icon.png')}
                   style={styles.icon}
                 />
               )}

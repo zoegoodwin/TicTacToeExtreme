@@ -45,7 +45,7 @@ const Instructions = ({navigation}) => {
               containerStyle={styles.buttonContainer}
               icon={() => (
                 <Image
-                  source={require('../assets/back-icon.png')}
+                  source={require('../assets/icons/back-icon.png')}
                   style={styles.icon}
                 />
               )}
