@@ -59,7 +59,6 @@ const styles = StyleSheet.create({
     marginBottom: '5%',
   },
   buttonMenu: {
-    alignItems: 'center',
     marginTop: '10%',
   },
 });

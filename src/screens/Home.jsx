@@ -16,23 +16,21 @@ function Home({navigation}) {
               source={require('../assets/icons/tic-tac-toe-logo.png')}
             />
           </View>
-          <View style={styles.buttonMenu}>
-            <IconButton
-              title="New Game"
-              iconName="start"
-              onPress={() => navigation.navigate('Game')}
-            />
-            <IconButton
-              title="Settings"
-              iconName="settings"
-              onPress={() => navigation.navigate('Difficulty')}
-            />
-            <IconButton
-              title="How to Play"
-              iconName="instructions"
-              onPress={() => navigation.navigate('Instructions')}
-            />
-          </View>
+          <IconButton
+            title="New Game"
+            iconName="start"
+            onPress={() => navigation.navigate('Game')}
+          />
+          <IconButton
+            title="Settings"
+            iconName="settings"
+            onPress={() => navigation.navigate('Difficulty')}
+          />
+          <IconButton
+            title="How to Play"
+            iconName="instructions"
+            onPress={() => navigation.navigate('Instructions')}
+          />
         </SafeAreaView>
       </MainLayout>
     </>
@@ -55,9 +53,6 @@ const styles = StyleSheet.create({
     width: 230,
     height: 230,
     resizeMode: 'contain',
-  },
-  buttonMenu: {
-    alignItems: 'center',
   },
 });
 

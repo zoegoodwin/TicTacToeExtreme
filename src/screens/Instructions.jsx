@@ -1,15 +1,14 @@
 import React from 'react';
 import {View, Text, SafeAreaView, StyleSheet, Image} from 'react-native';
-import {Button} from '@rneui/base';
-
+import IconButton from '../components/Button';
 import MainLayout from '../layouts/MainLayout';
 
 const Instructions = ({navigation}) => {
   return (
     <MainLayout>
       <SafeAreaView>
-        <View style={styles.container}>
-          <View style={styles.contentContainer}>
+        <View>
+          <View>
             <Text style={styles.title}>How to Play</Text>
 
             <Text style={styles.sectionTitle}>Regular Game</Text>
@@ -51,22 +50,14 @@ const Instructions = ({navigation}) => {
                 settings menu.
               </Text>
             </View>
-            <Button
-              title="Back"
-              loading={false}
-              loadingProps={{size: 'small', color: 'white'}}
-              buttonStyle={styles.button}
-              titleStyle={styles.buttonTitle}
-              containerStyle={styles.buttonContainer}
-              icon={() => (
-                <Image
-                  source={require('../assets/icons/back-icon.png')}
-                  style={styles.icon}
-                />
-              )}
-              onPress={() => navigation.navigate('Home')}
-            />
           </View>
+        </View>
+        <View style={styles.buttonMenu}>
+          <IconButton
+            title="Back"
+            iconName="back"
+            onPress={() => navigation.navigate('Home')}
+          />
         </View>
       </SafeAreaView>
     </MainLayout>
@@ -98,31 +89,8 @@ const styles = StyleSheet.create({
     color: 'black',
     marginBottom: '1%',
   },
-  button: {
-    backgroundColor: '#f9d335',
-    borderRadius: 15,
-    borderColor: '#634a8e',
-    borderStyle: 'solid',
-    borderWidth: 3,
-    height: 50,
-    width: 200,
-    marginVertical: 10,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-  },
-  buttonTitle: {
-    fontSize: 20,
-    fontFamily: '../assets/fonts/TiltNeon-Regular',
-    color: 'black',
-  },
-  buttonContainer: {
-    marginHorizontal: '20%',
-    marginVertical: '10%',
-  },
-  icon: {
-    height: 40,
-    width: 40,
-    marginRight: 10,
+  buttonMenu: {
+    marginTop: '10%',
   },
 });
 

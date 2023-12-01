@@ -66,7 +66,6 @@ const styles = StyleSheet.create({
     color: 'black',
     marginLeft: '5%',
   },
-
   sliderContainer: {
     flexDirection: 'column',
     alignItems: 'center',
@@ -80,34 +79,6 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: 'black',
     fontFamily: 'TiltNeon-Regular',
-  },
-  button: {
-    backgroundColor: '#f9d335',
-    borderRadius: 15,
-    borderColor: '#634a8e',
-    borderStyle: 'solid',
-    borderWidth: 3,
-    height: 50,
-    width: 200,
-    marginVertical: 10,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-  },
-  buttonTitle: {
-    fontSize: 20,
-    fontFamily: '../assets/fonts/TiltNeon-Regular',
-    color: 'black',
-  },
-  buttonContainer: {
-    marginHorizontal: '20%',
-  },
-  buttonMenu: {
-    alignItems: 'center',
-  },
-  icon: {
-    height: 40,
-    width: 40,
-    marginRight: 10,
   },
 });
 
