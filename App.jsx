@@ -26,6 +26,8 @@ import Home from './src/screens/Home';
 import Instructions from './src/screens/Instructions';
 import Game from './src/screens/Game';
 import Difficulty from './src/screens/Difficulty';
+import ResumeAndExit from './src/screens/ResumeAndExit';
+import GameOver from './src/screens/GameOver';
 
 const Stack = createStackNavigator();
 
@@ -52,6 +54,16 @@ function App() {
           options={{headerShown: false}}
           name="Difficulty"
           component={Difficulty}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="ResumeAndExit"
+          component={ResumeAndExit}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="GameOver"
+          component={GameOver}
         />
       </Stack.Navigator>
     </NavigationContainer>
