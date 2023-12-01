@@ -55,6 +55,8 @@ const Game = ({navigation}) => {
     const winner = calculateWinner(current.squares);
     if (winner) {
       navigation.navigate('GameOver', {winner});
+      setHistory([{ squares: Array(9).fill(null) }]);
+      setStepNumber(0);
     }
   }, [current.squares, navigation]);
 
