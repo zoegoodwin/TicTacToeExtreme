@@ -15,24 +15,22 @@ const GameOver = ({navigation, route}) => {
 
   return (
     <MainLayout>
-      <SafeAreaView style={styles.container}>
-        <View>
+      <SafeAreaView>
+        <View style={styles.container}>
           <Text style={styles.title}>Game Over!</Text>
           <Text style={styles.winText}>{message}</Text>
-        </View>
-
-        <View style={styles.buttonMenu}>
-          <IconButton
-            title="New Game"
-            iconName="newGame"
-            onPress={() => navigation.navigate('Game')}
-          />
-
-          <IconButton
-            title="Home"
-            iconName="home"
-            onPress={() => navigation.navigate('Home')}
-          />
+          <View style={styles.buttonMenu}>
+            <IconButton
+              title="New Game"
+              iconName="newGame"
+              onPress={() => navigation.navigate('Game')}
+            />
+            <IconButton
+              title="Home"
+              iconName="home"
+              onPress={() => navigation.navigate('Home')}
+            />
+          </View>
         </View>
       </SafeAreaView>
     </MainLayout>
@@ -41,8 +39,7 @@ const GameOver = ({navigation, route}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
+    marginVertical: '50%',
   },
   winText: {
     color: 'black',

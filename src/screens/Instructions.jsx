@@ -8,49 +8,41 @@ const Instructions = ({navigation}) => {
     <MainLayout>
       <SafeAreaView>
         <View>
-          <View>
-            <Text style={styles.title}>How to Play</Text>
+          <Text style={styles.title}>How to Play</Text>
 
-            <Text style={styles.sectionTitle}>Regular Game</Text>
-            <View>
-              <Text style={styles.boldText}>Objective: </Text>
-              <Text style={styles.descText}>
-                The goal is to get three of your symbols (either 'X' or 'O') in
-                a row, either horizontally, vertically, or diagonally.
-              </Text>
-            </View>
+          <Text style={styles.sectionTitle}>Regular Game</Text>
 
-            <View>
-              <Text style={styles.boldText}>Game Play: </Text>
-              <Text style={styles.descText}>
-                Players take turns placing their symbol ('X' or 'O') in an empty
-                cell of the grid.
-              </Text>
-              <Text style={styles.descText}>
-                The first player to get three of their symbols in a row wins.
-              </Text>
-              <Text style={styles.descText}>
-                If all the cells are filled and no player has three in a row,
-                the game is a tie.
-              </Text>
-            </View>
+          <Text style={styles.boldText}>Objective: </Text>
+          <Text style={styles.descText}>
+            The goal is to get three of your symbols (either 'X' or 'O') in a
+            row, either horizontally, vertically, or diagonally.
+          </Text>
+          <Text style={styles.boldText}>Game Play: </Text>
+          <Text style={styles.descText}>
+            Players take turns placing their symbol ('X' or 'O') in an empty
+            cell of the grid.
+          </Text>
+          <Text style={styles.descText}>
+            The first player to get three of their symbols in a row wins.
+          </Text>
+          <Text style={styles.descText}>
+            If all the cells are filled and no player has three in a row, the
+            game is a tie.
+          </Text>
 
-            <Text style={styles.sectionTitle}>Timed</Text>
-            <View>
-              <Text style={styles.descText}>
-                Follows the same rules as above, except each player only has a
-                set number of seconds to complete their turn.
-              </Text>
-              <Text style={styles.descText}>
-                If a player does not take their turn within the time limit, the
-                game moves forward with the next player's turn.
-              </Text>
-              <Text style={styles.descText}>
-                The number of seconds per turn can be adjusted in the difficulty
-                settings menu.
-              </Text>
-            </View>
-          </View>
+          <Text style={styles.sectionTitle}>Timed</Text>
+          <Text style={styles.descText}>
+            Follows the same rules as above, except each player only has a set
+            number of seconds to complete their turn.
+          </Text>
+          <Text style={styles.descText}>
+            If a player does not take their turn within the time limit, the game
+            moves forward with the next player's turn.
+          </Text>
+          <Text style={styles.descText}>
+            The number of seconds per turn can be adjusted in the difficulty
+            settings menu.
+          </Text>
         </View>
         <View style={styles.buttonMenu}>
           <IconButton

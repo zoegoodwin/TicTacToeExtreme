@@ -6,8 +6,8 @@ import MainLayout from '../layouts/MainLayout';
 const ResumeAndExit = ({navigation}) => {
   return (
     <MainLayout>
-      <SafeAreaView style={styles.container}>
-        <View style={styles.contentContainer}>
+      <SafeAreaView>
+        <View style={styles.container}>
           <Text style={styles.title}>
             Are you sure you want to exit the game?
           </Text>
@@ -30,12 +30,7 @@ const ResumeAndExit = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  contentContainer: {
-    marginHorizontal: 20,
-    alignItems: 'center',
+    marginVertical: '50%',
   },
   title: {
     fontSize: 36,

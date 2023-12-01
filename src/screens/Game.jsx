@@ -75,10 +75,8 @@ const Game = ({navigation}) => {
       <SafeAreaView>
         <View>
           <Text style={styles.title}>Tic Tac Toe </Text>
-        </View>
-
-        <View>
           <Text style={styles.status}>{status}</Text>
+
           <GameBoard squares={current.squares} onPress={handleClick} />
         </View>
         <View style={styles.buttonMenu}>
