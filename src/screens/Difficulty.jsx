@@ -26,7 +26,7 @@ const Difficulty = ({navigation}) => {
           <IconButton
             title="Speed Run"
             iconName="speedrun"
-            onPress={() => sendMessage('speed run')}
+            onPress={() => sendMessage('speed run (not implemented)')}
           />
           <IconButton
             title="Back"
