@@ -1,10 +1,10 @@
 import React from 'react';
-import {SafeAreaView, View, StyleSheet, Text} from 'react-native';
+import { SafeAreaView, View, StyleSheet, Text, Image } from 'react-native';
 import IconButton from '../components/Button';
 
 import MainLayout from '../layouts/MainLayout';
 
-function Home({navigation}) {
+function Home({ navigation }) {
   return (
     <>
       <MainLayout>
@@ -12,6 +12,10 @@ function Home({navigation}) {
           <View style={styles.container}>
             <Text style={styles.title}>Tic Tac Toe </Text>
             <Text style={styles.title}>Extreme </Text>
+            <Image
+              style={styles.logo}
+              source={require('../assets/icons/tic-tac-toe-logo.png')}
+            />
           </View>
           <View style={styles.buttonMenu}>
             <IconButton
@@ -40,16 +44,22 @@ const styles = StyleSheet.create({
   container: {
     paddingBottom: 20,
     backgroundColor: '#e4e6f2',
+    alignItems: 'center',
   },
   title: {
     fontSize: 40,
     textAlign: 'center',
     fontFamily: 'BungeeShade-Regular',
     color: 'black',
+    marginBottom: '5%',
+  },
+  logo: {
+    width: 230, 
+    height: 230, 
+    resizeMode: 'contain',
   },
   buttonMenu: {
     alignItems: 'center',
-    marginTop: '50%',
   },
 });
 
