@@ -27,10 +27,10 @@ const calculateWinner = squares => {
   return null;
 };
 
-const Game = ({ navigation, route }) => {
-  const { difficultyMode, time } = route.params || {};
+const Game = ({navigation, route}) => {
+  const {difficultyMode, time} = route.params || {};
   const [timer, setTimer] = useState(time);
-  const [history, setHistory] = useState([{ squares: Array(9).fill(null) }]);
+  const [history, setHistory] = useState([{squares: Array(9).fill(null)}]);
   const [stepNumber, setStepNumber] = useState(0);
   const xIsNext = stepNumber % 2 === 0;
   const current = history[stepNumber];
@@ -54,27 +54,27 @@ const Game = ({ navigation, route }) => {
   };
 
   useEffect(() => {
-    let isMounted = true; 
+    let isMounted = true;
     const winner = calculateWinner(current.squares);
-    const isDraw = !winner && current.squares.every((square) => square !== null);
-    let intervalId; 
+    const isDraw = !winner && current.squares.every(square => square !== null);
+    let intervalId;
     if (winner || isDraw) {
-      navigation.navigate('GameOver', { winner, isDraw });
-      setHistory([{ squares: Array(9).fill(null) }]);
+      navigation.navigate('GameOver', {winner, isDraw});
+      setHistory([{squares: Array(9).fill(null)}]);
       setStepNumber(0);
     }
-  
+
     if (difficultyMode === 'speedrun' && timer >= 0) {
       intervalId = setInterval(() => {
-        if (isMounted) { 
-          setTimer((prevTimer) => {
+        if (isMounted) {
+          setTimer(prevTimer => {
             if (prevTimer > 0) {
               return prevTimer - 1;
             } else {
               clearInterval(intervalId);
-              navigation.navigate('GameOver', { winner: null, isDraw: false }); 
+              navigation.navigate('GameOver', {winner: null, isDraw: false});
               if (isMounted) {
-                setHistory([{ squares: Array(9).fill(null) }]);
+                setHistory(prevHistory => [{squares: Array(9).fill(null)}]);
                 setStepNumber(0);
               }
               return 0;
@@ -82,7 +82,7 @@ const Game = ({ navigation, route }) => {
           });
         }
       }, 1000);
-  
+
       return () => {
         clearInterval(intervalId);
         isMounted = false;
