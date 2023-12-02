@@ -1,0 +1,37 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/BungeeShade-Regular.ttf",
+      "sha1": "ba5515eeed9add3dde10e5195faf9b3a47c591b3"
+    },
+    {
+      "path": "src/assets/fonts/Dongle-Bold.ttf",
+      "sha1": "75fcc4437ae92bd5b3f0c064fc9891a3bc2aba67"
+    },
+    {
+      "path": "src/assets/fonts/Dongle-Light.ttf",
+      "sha1": "6e627ff8bf24d576b66548bc2652aee816d99ac4"
+    },
+    {
+      "path": "src/assets/fonts/Dongle-Regular.ttf",
+      "sha1": "740c531d37fda2172f86e397855eb18a6b1b5825"
+    },
+    {
+      "path": "src/assets/fonts/Manjari-Bold.ttf",
+      "sha1": "23a9ead15d5eea0e772eeff73c8a095b0e0fb37b"
+    },
+    {
+      "path": "src/assets/fonts/Manjari-Regular.ttf",
+      "sha1": "ea4b81ea0faac0825f1c79a5c6c0bf69529cb06b"
+    },
+    {
+      "path": "src/assets/fonts/Manjari-Thin.ttf",
+      "sha1": "65cffba2f433a990900b8e4ad76588f641726a3a"
+    },
+    {
+      "path": "src/assets/fonts/TiltNeon-Regular.ttf",
+      "sha1": "cc1463b48374c4a6c85bb8bc713b2e5b76b70b29"
+    }
+  ]
+}
