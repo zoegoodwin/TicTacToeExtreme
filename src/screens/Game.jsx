@@ -35,6 +35,8 @@ const Game = ({navigation, route}) => {
   const xIsNext = stepNumber % 2 === 0;
   const current = history[stepNumber];
   const winner = calculateWinner(current.squares);
+  const saveTime = time;
+  // console.log(saveTime);
 
   const handleClick = i => {
     const newHistory = history.slice(0, stepNumber + 1);

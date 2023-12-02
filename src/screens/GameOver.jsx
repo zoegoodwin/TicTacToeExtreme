@@ -4,7 +4,8 @@ import IconButton from '../components/Button';
 import MainLayout from '../layouts/MainLayout';
 
 const GameOver = ({navigation, route}) => {
-  const {winner, isDraw} = route.params;
+  const { winner, isDraw, difficultyMode, saveTime } = route.params || {};
+  // console.log(difficultyMode, saveTime);
 
   let message;
   if (isDraw) {
@@ -27,7 +28,7 @@ const GameOver = ({navigation, route}) => {
             <IconButton
               title="New Game"
               iconName="newGame"
-              onPress={() => navigation.navigate('Game')}
+              onPress={() => navigation.navigate('Game', { difficultyMode, saveTime })}
             />
             <IconButton
               title="Home"
