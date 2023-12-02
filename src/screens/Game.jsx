@@ -35,6 +35,8 @@ const Game = ({ navigation, route }) => {
   const xIsNext = stepNumber % 2 === 0;
   const current = history[stepNumber];
   const winner = calculateWinner(current.squares);
+  const saveTime = time;
+  // console.log(saveTime);
 
   const handleClick = i => {
     const newHistory = history.slice(0, stepNumber + 1);
@@ -59,7 +61,7 @@ const Game = ({ navigation, route }) => {
     const isDraw = !winner && current.squares.every((square) => square !== null);
     let intervalId; 
     if (winner || isDraw) {
-      navigation.navigate('GameOver', { winner, isDraw });
+      navigation.navigate('GameOver', { winner, isDraw, difficultyMode, saveTime });
       setHistory([{ squares: Array(9).fill(null) }]);
       setStepNumber(0);
     }
@@ -72,7 +74,8 @@ const Game = ({ navigation, route }) => {
               return prevTimer - 1;
             } else {
               clearInterval(intervalId);
-              navigation.navigate('GameOver', { winner: null, isDraw: false }); 
+              // console.log('saving?' + saveTime);
+              navigation.navigate('GameOver', { winner: null, isDraw: false, difficultyMode, saveTime }); 
               if (isMounted) {
                 setHistory([{ squares: Array(9).fill(null) }]);
                 setStepNumber(0);
