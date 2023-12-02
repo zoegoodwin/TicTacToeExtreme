@@ -1,22 +1,19 @@
-import React, {useState} from 'react';
-import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
-import {Slider} from '@rneui/themed';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { Slider } from '@rneui/themed';
 import IconButton from '../components/Button';
 import MainLayout from '../layouts/MainLayout';
-import {useGameMode} from '../screens/GameMode';
 
 const Difficulty = ({ navigation }) => {
-  const { time, setTime, isNormalMode, setIsNormalMode } = useGameMode();
+  const [time, setTime] = useState(5);
+  const [difficultyMode, setDifficultyMode] = useState('normal');
 
-  const sendMessage = message => {
-    setIsNormalMode(message === 'normal');
+  const sendMessage = (message) => {
+    const selectedDifficultyMode = message === 'speedrun' ? 'speedrun' : 'normal';
     alert(`Game set to ${message} mode`);
+    navigation.navigate('Game', { difficultyMode: selectedDifficultyMode, time });
   };
-
-  const startGame = () => {
-    navigation.navigate('Game', { initialTime: time });
-  };
-
+  
   return (
     <MainLayout>
       <SafeAreaView>
@@ -26,21 +23,13 @@ const Difficulty = ({ navigation }) => {
         </View>
         <View>
           <View style={styles.buttonMenu}>
-            <IconButton
-              title="Normal"
-              iconName="start"
-              onPress={() => sendMessage('normal')}
-            />
+            <IconButton title="Normal" iconName="start" onPress={() => sendMessage('normal')} />
             <IconButton
               title="Speed Run"
               iconName="speedrun"
-              onPress={() => navigation.navigate('Game', { initialTime: time })}
+              onPress={() => sendMessage('speedrun')}
             />
-            <IconButton
-              title="Back"
-              iconName="back"
-              onPress={() => navigation.navigate('Home')}
-            />
+            <IconButton title="Back" iconName="back" onPress={() => navigation.navigate('Home')} />
           </View>
         </View>
 
