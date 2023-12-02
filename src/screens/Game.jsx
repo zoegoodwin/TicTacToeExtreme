@@ -34,9 +34,9 @@ const Game = ({navigation, route}) => {
   const [stepNumber, setStepNumber] = useState(0);
   const xIsNext = stepNumber % 2 === 0;
   const current = history[stepNumber];
+
   const winner = calculateWinner(current.squares);
-  const saveTime = time;
-  // console.log(saveTime);
+  const isDraw = !winner && current.squares.every(square => square !== null);
 
   const handleClick = i => {
     const newHistory = history.slice(0, stepNumber + 1);
@@ -49,6 +49,7 @@ const Game = ({navigation, route}) => {
     currentSquares[i] = xIsNext ? 'X' : 'O';
     setHistory(newHistory.concat([{squares: currentSquares}]));
     setStepNumber(newHistory.length);
+    setTimer(time);
   };
 
   const jumpTo = step => {
@@ -56,61 +57,43 @@ const Game = ({navigation, route}) => {
   };
 
   useEffect(() => {
-    let isMounted = true;
-    const winner = calculateWinner(current.squares);
-    const isDraw = !winner && current.squares.every(square => square !== null);
     let intervalId;
-    if (winner || isDraw) {
+
+    if (winner || isDraw || (difficultyMode === 'speedrun' && timer <= 0)) {
       navigation.navigate('GameOver', {winner, isDraw});
       setHistory([{squares: Array(9).fill(null)}]);
       setStepNumber(0);
+      clearInterval(intervalId);
+      setTimer(1000000);
+      return;
     }
 
-    if (difficultyMode === 'speedrun' && timer >= 0) {
+    if (difficultyMode === 'speedrun' && timer > 0 && (!winner || !isDraw)) {
       intervalId = setInterval(() => {
-        if (isMounted) {
-          setTimer(prevTimer => {
-            if (prevTimer > 0) {
-              return prevTimer - 1;
-            } else {
-              clearInterval(intervalId);
-              navigation.navigate('GameOver', {winner: null, isDraw: false});
-              if (isMounted) {
-                setHistory(prevHistory => [{squares: Array(9).fill(null)}]);
-                setStepNumber(0);
-              }
-              return 0;
-            }
-          });
-        }
+        setTimer(prevTimer => (prevTimer > 0 ? prevTimer - 1 : 0));
       }, 1000);
-
-      return () => {
-        clearInterval(intervalId);
-        isMounted = false;
-      };
     }
+
     return () => {
-      isMounted = false;
+      clearInterval(intervalId);
     };
-  }, [current.squares, navigation, difficultyMode, timer]);
+  }, [winner, isDraw, difficultyMode, navigation, timer]);
 
-  let status;
-
-  if (winner) {
-    status = `Winner: ${winner}`;
-  } else {
-    status = `Next player: ${xIsNext ? 'X' : 'O'}`;
-  }
+  const status = winner
+    ? `Winner: ${winner}`
+    : `Next player: ${xIsNext ? 'X' : 'O'}`;
 
   return (
     <MainLayout>
       <SafeAreaView>
         <View>
           <Text style={styles.title}>Tic Tac Toe </Text>
-          <Text style={styles.status}>
-            {difficultyMode === 'speedrun' ? `Time: ${timer} seconds` : status}
-          </Text>
+          <View style={styles.header}>
+            <Text style={styles.status}>{status}</Text>
+            <Text style={styles.status}>
+              {difficultyMode === 'speedrun' ? `Time: ${timer} seconds` : ''}
+            </Text>
+          </View>
           <GameBoard squares={current.squares} onPress={handleClick} />
         </View>
         <View style={styles.buttonMenu}>
@@ -151,6 +134,11 @@ const styles = StyleSheet.create({
     fontFamily: 'NeonTilt-Regular',
     color: 'black',
     marginBottom: 10,
+    justifyContent: 'space-between',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 });
 
