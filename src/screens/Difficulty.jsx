@@ -1,16 +1,19 @@
-import React, {useState} from 'react';
-import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
-import {Slider} from '@rneui/themed';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { Slider } from '@rneui/themed';
 import IconButton from '../components/Button';
 import MainLayout from '../layouts/MainLayout';
 
-const Difficulty = ({navigation}) => {
+const Difficulty = ({ navigation }) => {
   const [time, setTime] = useState(5);
+  const [difficultyMode, setDifficultyMode] = useState('normal');
 
-  const sendMessage = message => {
+  const sendMessage = (message) => {
+    const selectedDifficultyMode = message === 'speedrun' ? 'speedrun' : 'normal';
     alert(`Game set to ${message} mode`);
+    navigation.navigate('Game', { difficultyMode: selectedDifficultyMode, time });
   };
-
+  
   return (
     <MainLayout>
       <SafeAreaView>
@@ -20,21 +23,13 @@ const Difficulty = ({navigation}) => {
         </View>
         <View>
           <View style={styles.buttonMenu}>
-            <IconButton
-              title="Normal"
-              iconName="start"
-              onPress={() => sendMessage('normal')}
-            />
+            <IconButton title="Normal" iconName="start" onPress={() => sendMessage('normal')} />
             <IconButton
               title="Speed Run"
               iconName="speedrun"
-              onPress={() => sendMessage('speed run (not implemented)')}
+              onPress={() => sendMessage('speedrun')}
             />
-            <IconButton
-              title="Back"
-              iconName="back"
-              onPress={() => navigation.navigate('Home')}
-            />
+            <IconButton title="Back" iconName="back" onPress={() => navigation.navigate('Home')} />
           </View>
         </View>
 
@@ -45,7 +40,7 @@ const Difficulty = ({navigation}) => {
             maximumValue={10}
             step={1}
             value={time}
-            onValueChange={value => setTime(value)}
+            onValueChange={(value) => setTime(value)}
           />
           <Text style={styles.rangeValue}>{`Time: ${time} seconds`}</Text>
         </View>
